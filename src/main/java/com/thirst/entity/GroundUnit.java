@@ -4,12 +4,15 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import com.thirst.AnimationControllers;
 import com.thirst.Utils;
-import com.thirst.entity.goal.SpreadOut;
+import com.thirst.entity.goal.SpreadOutGoal;
 import com.thirst.entity.goal.WitherGroundGoal;
 
+import net.minecraft.entity.passive.RabbitEntity;
+import java.util.function.Predicate;
 import net.minecraft.entity.EntityType;
 // import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
+import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -21,9 +24,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.constant.DefaultAnimations;
 
 public abstract class GroundUnit extends Unit {
     public GroundUnit(EntityType<? extends PathAwareEntity> type, World world) {
@@ -37,15 +37,17 @@ public abstract class GroundUnit extends Unit {
     };
 
     public void witherGround() {
-        // throw new NotImplementedException("U have to define da withering behavior in
-        // ur child class!");
         throw new NotImplementedException("U have to define da withering behavior in ur child class!");
     }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-
-        controllers.add(AnimationControllers.WalkFuncIdle("wither"));
+        controllers.add(AnimationControllers.WalkFuncIdle("wither", new Predicate<Void>() {
+            @Override
+            public boolean test(Void v) {
+                return isSiphoning();
+            }
+        }));
     }
 
     @Override
@@ -68,9 +70,13 @@ public abstract class GroundUnit extends Unit {
         // Priority 0: High-level survival (Don't drown, look at things)
         this.goalSelector.add(0, new SwimGoal(this));
         // Priority 1: Spread out if too close to others of the same class
-        this.goalSelector.add(1, new SpreadOut(this, this.getClass(), 5));
-        // Priority 2: The Purpose: Withering the ground beneath them
-        this.goalSelector.add(2, new WitherGroundGoal(this));
+        this.goalSelector.add(1, new SpreadOutGoal(this, this.getClass(), 3));
+        // Priority 2: Flee from players if they get too close (still giving them a
+        // chance to kill the mob)
+        this.goalSelector.add(2, new SpreadOutGoal(this, PlayerEntity.class, 2));
+        // Priority 3: The Purpose: Withering the ground beneath them
+        this.goalSelector.add(3, new WitherGroundGoal(this));
+        this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.8D));
     }
 
     // 1. Define the "Radio Channel"

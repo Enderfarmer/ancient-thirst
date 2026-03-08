@@ -6,7 +6,6 @@ import com.thirst.entity.GroundUnit;
 import com.thirst.Utils;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 
 public class WitherGroundGoal extends Goal {
@@ -31,7 +30,8 @@ public class WitherGroundGoal extends Goal {
             this.positionTarget = found;
             this.mob.setPositionTarget(found, 10);
             this.isFinished = false;
-            return true;
+            return Math.random() > 0.2; // 80% chance to start when a target is found, to allow the mob to wander around
+                                        // a bit instead of immediately targeting the first block it sees
         }
         return false;
     }

@@ -36,7 +36,7 @@ public class AncientThirst implements ModInitializer {
 			Registries.ENTITY_TYPE,
 			MIN_GROUND_UNIT_ID,
 			EntityType.Builder.create(MinGroundUnitEntity::new, SpawnGroup.MONSTER)
-					.dimensions(0.6f, 1.8f) // The "Hitbox" size
+					.dimensions(0.75f, 0.5f) // The "Hitbox" size
 					.build(MIN_GROUND_UNIT_KEY));
 	public static final RegistryKey<Item> MIN_GROUND_UNIT_SPAWN_EGG_KEY = RegistryKey.of(
 			RegistryKeys.ITEM,
