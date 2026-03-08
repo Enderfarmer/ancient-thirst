@@ -7,10 +7,8 @@ import com.thirst.Utils;
 import com.thirst.entity.goal.SpreadOutGoal;
 import com.thirst.entity.goal.WitherGroundGoal;
 
-import net.minecraft.entity.passive.RabbitEntity;
 import java.util.function.Predicate;
 import net.minecraft.entity.EntityType;
-// import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
