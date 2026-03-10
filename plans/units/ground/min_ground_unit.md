@@ -1,12 +1,11 @@
 # Min Ground Unit
 
-## Efficiency
+## Basic attributes
 
-1 Block per try
-
-## Hitbox
-
-1x0.5x1 Blocks
+- Health: 3 hearts
+- Speed: 0.2
+- Efficiency: 1 block per try
+- Wither cooldown: 1 second
 
 ## Picture
 

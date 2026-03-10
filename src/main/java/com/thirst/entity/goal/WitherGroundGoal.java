@@ -11,14 +11,16 @@ import net.minecraft.util.math.BlockPos;
 public class WitherGroundGoal extends Goal {
     private final GroundUnit mob;
     private int timer = 0;
+    private int maxCd = 20;
     private boolean isFinished = false;
     // CRASH RISK: Ensure this is ONLY updated via the mob's data
     private BlockPos positionTarget = null;
     private BlockPos lastWitheredBlockPos = null;
     private int cd = 0; // Cooldown to prevent spamming the same block if something goes wrong
 
-    public WitherGroundGoal(GroundUnit mob) {
+    public WitherGroundGoal(GroundUnit mob, int maxCd) {
         this.mob = mob;
+        this.maxCd = maxCd;
         this.setControls(EnumSet.of(Goal.Control.MOVE, Goal.Control.LOOK));
     }
 
@@ -39,7 +41,7 @@ public class WitherGroundGoal extends Goal {
     @Override
     public void start() {
         this.timer = 0;
-        this.cd = 20;
+        this.cd = this.maxCd;
         // CRASH FIX: If start() is called but positionTarget is somehow null, abort.
         if (this.positionTarget != null) {
             this.mob.getNavigation().stop();

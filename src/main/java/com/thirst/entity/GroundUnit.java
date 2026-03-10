@@ -28,6 +28,8 @@ public abstract class GroundUnit extends Unit {
         super(type, world);
     }
 
+    public static int cooldown;
+
     public static DefaultAttributeContainer.Builder createAttributes() {
         return PathAwareEntity.createMobAttributes()
                 .add(EntityAttributes.MAX_HEALTH, 10.0)
@@ -73,7 +75,7 @@ public abstract class GroundUnit extends Unit {
         // chance to kill the mob)
         this.goalSelector.add(2, new SpreadOutGoal(this, PlayerEntity.class, 2));
         // Priority 3: The Purpose: Withering the ground beneath them
-        this.goalSelector.add(3, new WitherGroundGoal(this));
+        this.goalSelector.add(3, new WitherGroundGoal(this, cooldown));
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.8D));
     }
 
