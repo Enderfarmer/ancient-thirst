@@ -22,9 +22,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animation.state.AnimationTest;
 
 public abstract class GroundUnit extends Unit {
-    public GroundUnit(EntityType<? extends PathAwareEntity> type, World world) {
+    protected GroundUnit(EntityType<? extends PathAwareEntity> type, World world) {
         super(type, world);
     }
 
@@ -42,9 +43,9 @@ public abstract class GroundUnit extends Unit {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(AnimationControllers.WalkFuncIdle("wither", new Predicate<Void>() {
+        controllers.add(AnimationControllers.WalkFuncIdle("wither", new Predicate<AnimationTest<Unit>>() {
             @Override
-            public boolean test(Void v) {
+            public boolean test(AnimationTest<Unit> state) {
                 return isSiphoning();
             }
         }));

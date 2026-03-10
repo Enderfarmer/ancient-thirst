@@ -31,4 +31,8 @@ public class Unit extends PathAwareEntity implements GeoEntity {
     public static DefaultAttributeContainer.Builder createAttributes() {
         throw new NotImplementedException("U have to define da attributes in ur child class!");
     };
+
+    public static Hitbox getHitboxDims() {
+        throw new NotImplementedException("U have to define da hitbox dimensions in ur child class!");
+    };
 }
