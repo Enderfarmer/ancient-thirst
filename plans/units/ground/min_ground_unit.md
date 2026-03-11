@@ -9,7 +9,7 @@
 
 ## Picture
 
-![A picture of a spider but with 6 legs](../../../photos/min_ground_unit.png)
+![A picture of a spider but with 6 legs](../../../photos/ground/min_ground_unit.png)
 
 ## Population weight
 
