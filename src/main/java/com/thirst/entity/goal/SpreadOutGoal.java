@@ -4,7 +4,6 @@ import java.util.EnumSet;
 import java.util.List;
 
 import com.thirst.entity.Unit;
-import com.thirst.Utils;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
@@ -38,14 +37,6 @@ public class SpreadOutGoal extends Goal {
     }
 
     @Override
-    public void start() {
-        Utils.log(
-                "SpreadOut goal started. Found " + getNearbyEntities().size() + " entities of class "
-                        + classToAvoid.getSimpleName() + " within distance " + minDistance,
-                mob.getEntityWorld().getPlayers().get(0));
-    }
-
-    @Override
     public void tick() {
         if (check() && this.mob.getNavigation().isIdle()) {
 
@@ -53,7 +44,7 @@ public class SpreadOutGoal extends Goal {
             LivingEntity closest = getNearbyEntities().stream()
                     .filter(e -> e != mob) // CRITICAL: Don't avoid yourself!
                     .min((e1, e2) -> Double.compare(e1.squaredDistanceTo(mob), e2.squaredDistanceTo(mob)))
-                    .orElse(null);
+                    .get();
 
             if (closest != null) {
                 double dx = mob.getX() - closest.getX();
