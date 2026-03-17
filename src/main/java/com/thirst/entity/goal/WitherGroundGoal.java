@@ -1,12 +1,13 @@
 package com.thirst.entity.goal;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 
 import com.thirst.entity.GroundUnit;
-import com.thirst.Utils;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class WitherGroundGoal extends Goal {
     private final GroundUnit mob;
@@ -47,8 +48,6 @@ public class WitherGroundGoal extends Goal {
             this.mob.getNavigation().stop();
             this.mob.getNavigation().startMovingTo(
                     positionTarget.getX(), positionTarget.getY(), positionTarget.getZ(), 1.0D);
-            Utils.log("WitherGroundGoal started. Target: " + positionTarget,
-                    this.mob.getEntityWorld().getPlayers().get(0));
         }
     }
 
@@ -98,17 +97,27 @@ public class WitherGroundGoal extends Goal {
         return !this.isFinished;
     }
 
-    private BlockPos findLushBlock() {
-        // Search a 5x3x5 area for Grass
-        Iterable<BlockPos> iterable = BlockPos.iterateOutwards(this.mob.getBlockPos(), 10, 2, 10);
-        for (BlockPos pos : iterable) {
-            if (this.lastWitheredBlockPos != null && pos.equals(this.lastWitheredBlockPos.add(0, -1, 0))) {
-                continue; // Skip the last withered block to prevent immediate re-targeting
-            }
-            if (this.mob.getEntityWorld().getBlockState(pos).isOf(Blocks.GRASS_BLOCK)) {
-                return pos.toImmutable();
+    private BlockPos findLushBlock(World world, BlockPos center, int range) {
+        List<BlockPos> candidates = new ArrayList<>();
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+
+        for (int x = -range; x <= range; x++) {
+            for (int z = -range; z <= range; z++) {
+                for (int y = -2; y <= 2; y++) {
+                    mutable.set(center.getX() + x, center.getY() + y, center.getZ() + z);
+
+                    if (isLush(world, mutable)) {
+                        // Add a copy of the position to our list
+                        candidates.add(mutable.toImmutable());
+                    }
+                }
             }
         }
-        return null;
+
+        if (candidates.isEmpty())
+            return null;
+
+        // Pick a random block from the entire area found
+        return candidates.get(world.random.nextInt(candidates.size()));
     }
 }
