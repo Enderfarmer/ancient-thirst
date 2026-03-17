@@ -15,7 +15,7 @@ import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.animation.object.PlayState;
 import software.bernie.geckolib.constant.DefaultAnimations;
 
-public class SoulScorpion extends MobUnit {
+public class SoulScorpion extends MeleeUnit {
     int stingCooldown = 0;
 
     public SoulScorpion(EntityType<? extends SoulScorpion> type, World world) {
@@ -23,7 +23,7 @@ public class SoulScorpion extends MobUnit {
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        return MobUnit.createMobAttributes()
+        return MeleeUnit.createMobAttributes()
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.2)
                 .add(EntityAttributes.MAX_HEALTH, 12.0)
                 .add(EntityAttributes.ATTACK_DAMAGE, 2);

@@ -11,9 +11,13 @@ import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.manager.AnimatableManager;
 import software.bernie.geckolib.constant.DefaultAnimations;
 
-public class MobUnit extends Unit {
-    public MobUnit(EntityType<? extends MobUnit> type, World world) {
+public class MeleeUnit extends Unit {
+    public MeleeUnit(EntityType<? extends MeleeUnit> type, World world) {
         super(type, world);
+    }
+
+    public UnitType getUnitType() {
+        return UnitType.MELEE;
     }
 
     @Override

@@ -33,7 +33,7 @@ public class SpreadOutGoal extends Goal {
     @Override
     public boolean canStart() {
         // Check if there's an entity of the specified class within the minimum distance
-        return check();
+        return check() && !this.mob.isInFormation;
     }
 
     @Override

@@ -2,7 +2,9 @@ package com.thirst.entity.goal;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.List;
 
+import com.thirst.ModBlockTags;
 import com.thirst.entity.GroundUnit;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.ai.goal.Goal;
@@ -27,7 +29,7 @@ public class WitherGroundGoal extends Goal {
 
     @Override
     public boolean canStart() {
-        BlockPos found = findLushBlock();
+        BlockPos found = findLushBlock(this.mob.getEntityWorld(), this.mob.getBlockPos().add(0, -1, 0), 10);
         if (found != null) {
             // FIX: You MUST set both the mob's target AND this local variable
             this.positionTarget = found;
@@ -95,6 +97,10 @@ public class WitherGroundGoal extends Goal {
     @Override
     public boolean shouldContinue() {
         return !this.isFinished;
+    }
+
+    private boolean isLush(World world, BlockPos.Mutable mutable) {
+        return world.getBlockState(mutable).isIn(ModBlockTags.WITHERABLE);
     }
 
     private BlockPos findLushBlock(World world, BlockPos center, int range) {
