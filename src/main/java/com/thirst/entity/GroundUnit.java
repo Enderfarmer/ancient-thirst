@@ -62,28 +62,19 @@ public abstract class GroundUnit extends Unit {
         // For testing: Right-click to trigger the siphoning animation
         if (!this.getEntityWorld().isClient() && hand == net.minecraft.util.Hand.MAIN_HAND) {
             List<String> logList = List.of("My pos: " + this.getBlockPos(),
-                    "My formation target: " + this.formation.getTargetLocation(),
-                    "My formation slot: " + this.formationSlot, "My id in group: " + this.formation.getIdInGroup(this),
-                    "I am in position: " + this.inPosition, "Dist sq to my slot: " + this.distSq,
-                    "Formation state: " + this.formation.getState());
+                    "My nav target: " + this.getNavigation().getTargetPos());
             Utils.logAList(logList, player);
         }
         return ActionResult.SUCCESS;
     }
 
     protected void initGoals() {
-        // Priority 0: High-level survival (Don't drown, look at things)
         this.goalSelector.add(0, new SwimGoal(this));
-        // Priority 1: Participate in formations
         this.goalSelector.add(1, new FormationGoal(this));
-        // Priority 2: Spread out if too close to others of the same class
-        this.goalSelector.add(2, new SpreadOutGoal(this, this.getClass(), 1));
-        // Priority 2: Flee from players if they get too close (still giving them a
-        // chance to kill the mob)
         this.goalSelector.add(2, new SpreadOutGoal(this, PlayerEntity.class, 2));
-        // Priority 3: The Purpose: Withering the ground beneath them
-        this.goalSelector.add(3, new WitherGroundGoal(this, cooldown));
-        this.goalSelector.add(4, new WanderAroundFarGoal(this, 0.8D));
+        this.goalSelector.add(3, new SpreadOutGoal(this, this.getClass(), 1));
+        this.goalSelector.add(4, new WitherGroundGoal(this, cooldown));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.8D));
     }
 
     // 1. Define the "Radio Channel"

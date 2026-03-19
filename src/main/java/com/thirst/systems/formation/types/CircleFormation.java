@@ -100,7 +100,7 @@ public class CircleFormation extends FormationBase {
 
     protected Vec3d translateToRealPos(Vec3d calculated, int radius, World world, double shouldBeCloseToY) {
         Vec3d withoutY = new Vec3d(calculated.x * radius, 0, calculated.z * radius);
-        Vec3d result = new Vec3d(withoutY.x + targetLocation.getX(), findValidY(world, withoutY.x
+        Vec3d result = new Vec3d(withoutY.x + targetLocation.getX(), Utils.findValidY(world, withoutY.x
                 + targetLocation.getX(), withoutY.z + targetLocation.getZ(), shouldBeCloseToY), withoutY.z
                         + targetLocation.getZ());
         return result;

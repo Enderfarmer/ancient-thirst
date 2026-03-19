@@ -40,7 +40,7 @@ public class AncientThirst implements ModInitializer {
 	}
 
 	public static SpawnEggItem registerSpawnEgg(EntityType<? extends PathAwareEntity> entityType, String name) {
-		RegistryKey<Item> registryKey = ThirstId.registryKey(RegistryKeys.ITEM, name);
+		RegistryKey<Item> registryKey = ThirstId.registryKey(RegistryKeys.ITEM, name + "_spawn_egg");
 		SpawnEggItem spawnEgg = new SpawnEggItem(new Item.Settings().spawnEgg(entityType).registryKey(registryKey));
 		return Registry.register(Registries.ITEM, registryKey, spawnEgg);
 	}
