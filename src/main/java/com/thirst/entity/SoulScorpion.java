@@ -38,7 +38,7 @@ public class SoulScorpion extends MeleeUnit {
                 LivingEntity targetMob = (LivingEntity) target;
                 if (targetMob.getClass().isAssignableFrom(PassiveEntity.class))
                     targetMob.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-                            100, 0));
+                            100, 2));
                 else
                     targetMob.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
                             100, 0));
