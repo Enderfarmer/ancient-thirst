@@ -1,0 +1,9 @@
+{
+    "unit.mutation.heal": {
+        "category": "hostile",
+        "sounds": [
+            "ancient-thirst:mutations/heal/flesh-growing",
+            "ancient-thirst:mutations/heal/heal-inhale"
+        ]
+    }
+}

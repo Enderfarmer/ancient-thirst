@@ -1,4 +1,4 @@
-package com.thirst.systems.upgrades;
+package com.thirst.systems.mutations;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import com.mojang.serialization.Codec;
 import com.thirst.AncientThirst;
 import com.thirst.ModRegistries;
 import com.thirst.entity.Unit;
-import com.thirst.systems.upgrades.types.UpgradeBase;
+import com.thirst.systems.mutations.types.MutationBase;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -16,14 +16,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateType;
 
-public class UpgradeState extends PersistentState {
-    public final Map<Identifier, UpgradeBase> activeUpgrades = new HashMap<>();
+public class MutationState extends PersistentState {
+    public final Map<Identifier, MutationBase> activeUpgrades = new HashMap<>();
 
-    public UpgradeState() {
+    public MutationState() {
         fillMissing();
     }
 
-    public UpgradeState(Map<Identifier, UpgradeBase> map) {
+    public MutationState(Map<Identifier, MutationBase> map) {
         this.activeUpgrades.putAll(map);
         fillMissing();
     }
@@ -51,16 +51,16 @@ public class UpgradeState extends PersistentState {
     }
 
     // Standard Codec logic for the Map
-    public static final Codec<UpgradeState> CODEC = Codec.unboundedMap(
+    public static final Codec<MutationState> CODEC = Codec.unboundedMap(
             Identifier.CODEC,
-            UpgradeBase.DISPATCH_CODEC).xmap(UpgradeState::new, state -> state.activeUpgrades);
-    public static final PersistentStateType<UpgradeState> TYPE = new PersistentStateType<UpgradeState>(
+            MutationBase.DISPATCH_CODEC).xmap(MutationState::new, state -> state.activeUpgrades);
+    public static final PersistentStateType<MutationState> TYPE = new PersistentStateType<MutationState>(
             "upgrades",
-            UpgradeState::new,
+            MutationState::new,
             CODEC,
             null);
 
-    public static UpgradeState getServerState(MinecraftServer server) {
+    public static MutationState getServerState(MinecraftServer server) {
         return server.getOverworld().getPersistentStateManager().getOrCreate(TYPE);
     }
 }

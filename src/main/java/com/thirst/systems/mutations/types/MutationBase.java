@@ -1,4 +1,4 @@
-package com.thirst.systems.upgrades.types;
+package com.thirst.systems.mutations.types;
 
 import com.mojang.serialization.Codec;
 import com.thirst.ModRegistries;
@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-public abstract class UpgradeBase {
+public abstract class MutationBase {
     protected int lastValue = -1;
 
     public abstract void onKill(EntityType entityType);
@@ -38,7 +38,7 @@ public abstract class UpgradeBase {
         return ThirstId.id(this.getType());
     };
 
-    public static Codec<UpgradeBase> DISPATCH_CODEC = Identifier.CODEC.dispatch(bb -> bb.getId(),
+    public static Codec<MutationBase> DISPATCH_CODEC = Identifier.CODEC.dispatch(bb -> bb.getId(),
             type -> ModRegistries.UPGRADE_REGISTRY.get(type).codec());
 
     /**

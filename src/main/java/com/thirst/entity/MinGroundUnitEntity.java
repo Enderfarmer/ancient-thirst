@@ -1,7 +1,7 @@
 package com.thirst.entity;
 
 import com.thirst.mass.MassState;
-import com.thirst.systems.upgrades.UpgradeState;
+import com.thirst.systems.mutations.MutationState;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
@@ -31,7 +31,7 @@ public class MinGroundUnitEntity extends GroundUnit {
         BlockPos positionTarget = this.getPositionTarget();
         MassState.getServerState(this.getEntityWorld().getServer())
                 .onInfectBlock(this.getEntityWorld().getBlockState(positionTarget));
-        UpgradeState.getServerState(this.getEntityWorld().getServer())
+        MutationState.getServerState(this.getEntityWorld().getServer())
                 .onBlockInfect(this.getEntityWorld().getBlockState(positionTarget));
 
         getEntityWorld().setBlockState(positionTarget,

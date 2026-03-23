@@ -1,4 +1,4 @@
-package com.thirst.systems.upgrades.types;
+package com.thirst.systems.mutations.types;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.registry.entry.RegistryEntry;
 
-public class StrengthUpgrade extends KillBasedUpgrade {
+public class StrengthMutation extends KillBasedMutation {
     @Override
     public String getType() {
         return "strength";
@@ -35,10 +35,10 @@ public class StrengthUpgrade extends KillBasedUpgrade {
         super.onKill(entityType, ModEntityTags.STRENGTH_BOOST);
     }
 
-    public StrengthUpgrade(int kills) {
+    public StrengthMutation(int kills) {
         super(kills);
         this.kills = kills;
     }
 
-    public static final MapCodec<StrengthUpgrade> CODEC = genCodec(StrengthUpgrade::new);
+    public static final MapCodec<StrengthMutation> CODEC = genCodec(StrengthMutation::new);
 }

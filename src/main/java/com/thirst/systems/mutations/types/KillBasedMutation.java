@@ -1,4 +1,4 @@
-package com.thirst.systems.upgrades.types;
+package com.thirst.systems.mutations.types;
 
 import java.util.List;
 import java.util.function.Function;
@@ -14,7 +14,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 
-public abstract class KillBasedUpgrade extends UpgradeBase {
+public abstract class KillBasedMutation extends MutationBase {
     /**
      * Tresholds for the values (ascending order)
      */
@@ -43,7 +43,7 @@ public abstract class KillBasedUpgrade extends UpgradeBase {
         }
     }
 
-    public KillBasedUpgrade(int kills) {
+    public KillBasedMutation(int kills) {
         this.kills = kills;
     }
 
@@ -58,7 +58,7 @@ public abstract class KillBasedUpgrade extends UpgradeBase {
                 getAttributeToUpgrade(), getId());
     }
 
-    protected static final <T extends KillBasedUpgrade> MapCodec<T> genCodec(
+    protected static final <T extends KillBasedMutation> MapCodec<T> genCodec(
             Function<Integer, T> constructor) {
         return RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Codec.INT.fieldOf("kills").forGetter(u -> u.kills)).apply(instance, constructor));

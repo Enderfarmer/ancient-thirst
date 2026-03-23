@@ -75,6 +75,7 @@ public class AncientThirst implements ModInitializer {
 			FormationedAttackState.getServerState(server).tick(server);
 		});
 		ModRegistries.init();
+		ModSounds.init();
 
 	}
 }

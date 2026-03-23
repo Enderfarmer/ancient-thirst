@@ -1,4 +1,4 @@
-package com.thirst.systems.upgrades.types;
+package com.thirst.systems.mutations.types;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.registry.entry.RegistryEntry;
 
-public class SpeedUpgrade extends KillBasedUpgrade {
+public class SpeedMutation extends KillBasedMutation {
     @Override
     public String getType() {
         return "speed";
@@ -36,9 +36,9 @@ public class SpeedUpgrade extends KillBasedUpgrade {
         return EntityAttributes.MOVEMENT_SPEED;
     }
 
-    public SpeedUpgrade(int kills) {
+    public SpeedMutation(int kills) {
         super(kills);
     }
 
-    public static final MapCodec<SpeedUpgrade> CODEC = genCodec(SpeedUpgrade::new);
+    public static final MapCodec<SpeedMutation> CODEC = genCodec(SpeedMutation::new);
 }

@@ -17,4 +17,5 @@ public class ModEntityTags {
         public static final TagKey<EntityType<?>> STRENGTH_BOOST = create("boosts/strength");
         public static final TagKey<EntityType<?>> SPEED_BOOST = create("boosts/speed");
         public static final TagKey<EntityType<?>> SHELL_BOOST = create("boosts/shell");
+        public static final TagKey<EntityType<?>> REGEN_BOOST = create("boosts/regen");
 }

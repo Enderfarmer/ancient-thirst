@@ -7,7 +7,7 @@ import com.thirst.AncientThirst;
 import com.thirst.mass.MassState;
 import com.thirst.systems.formation.FormationState;
 import com.thirst.systems.formation.types.FormationBase;
-import com.thirst.systems.upgrades.UpgradeState;
+import com.thirst.systems.mutations.MutationState;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -72,7 +72,7 @@ public class Unit extends PathAwareEntity implements GeoEntity {
     @Override
     public void tick() {
         if (!this.getEntityWorld().isClient())
-            UpgradeState.getServerState(this.getEntityWorld().getServer()).processUnit(this);
+            MutationState.getServerState(this.getEntityWorld().getServer()).processUnit(this);
         this.inPosition = this.isInFormation && this.inPosition;
         super.tick();
     }
@@ -80,7 +80,7 @@ public class Unit extends PathAwareEntity implements GeoEntity {
     @Override
     public boolean onKilledOther(ServerWorld world, LivingEntity other, DamageSource damageSource) {
         MassState.getServerState(world.getServer()).onKill(other);
-        UpgradeState.getServerState(world.getServer()).onKill(other.getType());
+        MutationState.getServerState(world.getServer()).onKill(other.getType());
         // if (this.isInFormation) {
         world.spawnEntity(AncientThirst.SOUL_SCORPION.create(world, null, other.getBlockPos().add(0, -1, 0),
                 SpawnReason.CONVERSION, true, false));
