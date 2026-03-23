@@ -5,9 +5,11 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 
 public class ModBlockTags {
-    // This creates a tag reference for "ancient_thirst:witherable"
-    public static final TagKey<Block> WITHERABLE = TagKey.of(
-            RegistryKeys.BLOCK,
-            ThirstId.id("witherable"));
+    private static TagKey<Block> create(String name) {
+        return TagKey.of(RegistryKeys.BLOCK, ThirstId.id(name));
+    }
+
+    public static final TagKey<Block> WITHERABLE = create("witherable");
+    public static final TagKey<Block> DEPTH_BOOST = create("depth_upgrade");
 
 }

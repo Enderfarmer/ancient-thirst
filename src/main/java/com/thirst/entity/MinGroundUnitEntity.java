@@ -1,5 +1,8 @@
 package com.thirst.entity;
 
+import com.thirst.mass.MassState;
+import com.thirst.systems.upgrades.UpgradeState;
+
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -26,11 +29,17 @@ public class MinGroundUnitEntity extends GroundUnit {
     @Override
     public void witherGround() {
         BlockPos positionTarget = this.getPositionTarget();
+        MassState.getServerState(this.getEntityWorld().getServer())
+                .onInfectBlock(this.getEntityWorld().getBlockState(positionTarget));
+        UpgradeState.getServerState(this.getEntityWorld().getServer())
+                .onBlockInfect(this.getEntityWorld().getBlockState(positionTarget));
+
         getEntityWorld().setBlockState(positionTarget,
                 Blocks.SOUL_SOIL.getDefaultState());
         getEntityWorld().playSound(null, positionTarget,
                 SoundEvents.BLOCK_CHERRY_SAPLING_BREAK,
                 SoundCategory.BLOCKS, 1.0f, 0.5f);
+
     }
 
     public static Hitbox getHitboxDims() {

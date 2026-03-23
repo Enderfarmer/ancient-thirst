@@ -1,0 +1,22 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:cod",
+        "minecraft:bee",
+        "minecraft:salmon",
+        "minecraft:pufferfish",
+        "minecraft:squid",
+        "minecraft:glow_squid",
+        "minecraft:tadpole",
+        "minecraft:tropical_fish",
+        "minecraft:chicken",
+        "minecraft:frog",
+        "minecraft:parrot",
+        "minecraft:bat",
+        "minecraft:turtle",
+        "minecraft:rabbit",
+        "minecraft:armadillo",
+        "minecraft:endermite",
+        "minecraft:silverfish"
+    ]
+}

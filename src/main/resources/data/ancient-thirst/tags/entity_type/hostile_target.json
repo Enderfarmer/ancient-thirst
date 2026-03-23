@@ -1,0 +1,16 @@
+{
+    "replace": false,
+    "values": [
+        "#minecraft:zombies",
+        "#minecraft:skeletons",
+        "minecraft:nautilus",
+        "minecraft:zombie_nautilus",
+        "minecraft:enderman",
+        "minecraft:phantom",
+        "minecraft:vex",
+        "minecraft:creeper",
+        "minecraft:ghast",
+        "minecraft:blaze",
+        "minecraft:pufferfish"
+    ]
+}
