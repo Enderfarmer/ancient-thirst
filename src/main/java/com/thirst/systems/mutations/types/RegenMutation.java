@@ -3,7 +3,6 @@ package com.thirst.systems.mutations.types;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.thirst.AncientThirst;
 import com.thirst.ModEntityTags;
 import com.thirst.ModSounds;
 import com.thirst.entity.Unit;
@@ -49,6 +48,11 @@ public class RegenMutation extends MutationBase {
     }
 
     @Override
+    public String toString() {
+        return "RegenUpgrade with kills being " + kills;
+    }
+
+    @Override
     public void processUnit(Unit mob) {
         if (mob.getHealth() < mob.getMaxHealth() && mob.age % 60 == 0) {
             boolean shouldHeal = false;
@@ -63,7 +67,8 @@ public class RegenMutation extends MutationBase {
             }
             ;
             if (shouldHeal) {
-                double amount = MAX_HEAL_AMOUNT / MAX_KILLS * kills;
+                double amount = (double) MAX_HEAL_AMOUNT / (double) MAX_KILLS * (double) kills;
+                amount = Math.max(2, amount);
                 mob.heal((float) amount);
                 if (!mob.getEntityWorld().isClient()) {
                     ServerWorld world = (ServerWorld) mob.getEntityWorld();
@@ -72,7 +77,7 @@ public class RegenMutation extends MutationBase {
                     Vec3d start = catalystPos.toCenterPos();
                     Vec3d end = new Vec3d(mob.getBlockPos());
 
-                    // 2. Calculate the "Delta" (The path)
+                    // 2. Calculate the delta
                     Vec3d path = end.subtract(start);
 
                     // 3. Spawn 5 particles at random spots along that path

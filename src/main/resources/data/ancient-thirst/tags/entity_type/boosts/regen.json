@@ -1,4 +1,9 @@
 {
     "replace": false,
-    "values": ["#minecraft:axolotls", "minecraft:witch"]
+    "values": [
+        "minecraft:axolotl",
+        "minecraft:witch",
+        "minecraft:skeleton",
+        "minecraft:squid"
+    ]
 }
