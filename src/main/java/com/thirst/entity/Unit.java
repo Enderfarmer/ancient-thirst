@@ -2,6 +2,7 @@ package com.thirst.entity;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 
 import com.thirst.AncientThirst;
 import com.thirst.mass.MassState;
@@ -14,8 +15,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -88,5 +93,34 @@ public class Unit extends PathAwareEntity implements GeoEntity {
         return false;
         // }
         // return true;
+    }
+
+    @Override
+    public void applyDamage(ServerWorld world, DamageSource source, float amount) {
+        if (source.isOf(DamageTypes.WITHER)) {
+            this.heal(amount);
+
+            return;
+        }
+        super.applyDamage(world, source, amount);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        if (source.isOf(DamageTypes.WITHER)) {
+            return SoundEvents.BLOCK_AMETHYST_BLOCK_STEP;
+        }
+        return SoundEvents.ENTITY_WITHER_HURT;
+    }
+
+    @Override
+    public void onDamaged(DamageSource damageSource) {
+        if (damageSource.isOf(DamageTypes.WITHER)) {
+
+            this.getEntityWorld().addParticleClient(ParticleTypes.SOUL, this.getX(), this.getEyeY(), this.getZ(), 0,
+                    0.1, 0);
+            return;
+        }
+        super.onDamaged(damageSource);
     }
 }
