@@ -1,9 +1,28 @@
 {
     "unit.mutation.heal": {
         "category": "hostile",
+        "sounds": ["ancient-thirst:mutations/heal/flesh-growing"]
+    },
+    "infiltration.infect": {
+        "category": "hostile",
         "sounds": [
-            "ancient-thirst:mutations/heal/flesh-growing",
-            "ancient-thirst:mutations/heal/heal-inhale"
+            "ancient-thirst:infiltration/infect/infect-0",
+            "ancient-thirst:infiltration/infect/infect-1"
+        ]
+    },
+    "infiltration.ambient": {
+        "category": "hostile",
+        "sounds": [
+            "ancient-thirst:infiltration/ambience/breath",
+            "ancient-thirst:infiltration/ambience/calm",
+            "ancient-thirst:infiltration/ambience/evilness"
+        ]
+    },
+    "infiltration.ambush": {
+        "category": "hostile",
+        "sounds": [
+            "ancient-thirst:infiltration/ambience/drums",
+            "ancient-thirst:infiltration/ambush/suspense"
         ]
     }
 }

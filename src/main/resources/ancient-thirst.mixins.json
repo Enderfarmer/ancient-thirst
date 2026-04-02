@@ -1,14 +1,19 @@
 {
-	"required": true,
-	"package": "com.thirst.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ExampleMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+    "required": true,
+    "package": "com.thirst.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "mixins": [
+        "ExampleMixin",
+        "infiltration/InfiltrationMoodMixin",
+        "infiltration/InfiltratedMobsMixin",
+        "infiltration/IsInfiltratedMixin",
+        "infiltration/TriggerMixin",
+        "MobEntityAccessor"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
+    }
 }

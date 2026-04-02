@@ -15,5 +15,6 @@ public class AncientThirstClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		registerRenderer(AncientThirst.MIN_GROUND_UNIT);
 		registerRenderer(AncientThirst.SOUL_SCORPION);
+		registerRenderer(AncientThirst.WITHER_FLEA);
 	}
 }

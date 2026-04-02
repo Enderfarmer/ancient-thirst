@@ -13,9 +13,16 @@ public class ModSounds {
         return Registry.register(Registries.SOUND_EVENT, ThirstId.id(name), create(name));
     }
 
-    public static final SoundEvent FLESH_GROWING = create("unit.mutation.heal");
+    private static SoundEvent register(SoundEvent sound) {
+        return Registry.register(Registries.SOUND_EVENT, sound.id(), sound);
+    }
+
+    public static final SoundEvent FLESH_GROWING = register("unit.mutation.heal");
+    public static final SoundEvent INFILTRATION_INFECT = register("infiltration.infect");
+    public static final SoundEvent INFILTRATION_AMBIENT = register("infiltration.ambient");
+    public static final SoundEvent INFILTRATION_AMBUSH = register("infiltration.ambush");
 
     public static void init() {
-        register("unit.mutation.heal");
+        // Force class loading
     }
 }

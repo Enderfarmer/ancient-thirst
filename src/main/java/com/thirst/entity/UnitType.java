@@ -4,5 +4,6 @@ public enum UnitType {
     GROUND,
     MELEE,
     RANGED,
-    PSYCHEDELIC
+    PSYCHEDELIC,
+    INFILTRATION
 }

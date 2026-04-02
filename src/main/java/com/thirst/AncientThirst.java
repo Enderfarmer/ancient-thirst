@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import com.thirst.entity.Hitbox;
 import com.thirst.entity.MinGroundUnitEntity;
 import com.thirst.entity.SoulScorpion;
+import com.thirst.entity.WitherFlea;
 import com.thirst.item.LoggerItem;
 import com.thirst.item.NavStop;
 import com.thirst.systems.formation.FormationedAttackState;
@@ -53,17 +54,21 @@ public class AncientThirst implements ModInitializer {
 			MinGroundUnitEntity.getHitboxDims());
 	public static EntityType<SoulScorpion> SOUL_SCORPION = registerEntityType("soul_scorpion", SoulScorpion::new,
 			SoulScorpion.getHitboxDims());
+	public static EntityType<WitherFlea> WITHER_FLEA = registerEntityType("wither_flea", WitherFlea::new,
+			WitherFlea.getHitboxDims());
 
-	@SuppressWarnings("null")
 	@Override
 	public void onInitialize() {
 		SpawnEggItem MIN_GROUND_UNIT_SPAWN_EGG = registerSpawnEgg(MIN_GROUND_UNIT, "min_ground_unit");
 		SpawnEggItem SOUL_SCORPION_SPAWN_EGG = registerSpawnEgg(SOUL_SCORPION, "soul_scorpion");
+		SpawnEggItem WITHER_FLEA_SPAWN_EGG = registerSpawnEgg(WITHER_FLEA, "wither_flea");
 		FabricDefaultAttributeRegistry.register(MIN_GROUND_UNIT, MinGroundUnitEntity.createAttributes());
 		FabricDefaultAttributeRegistry.register(SOUL_SCORPION, SoulScorpion.createAttributes());
+		FabricDefaultAttributeRegistry.register(WITHER_FLEA, WitherFlea.createAttributes());
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
 			content.add(MIN_GROUND_UNIT_SPAWN_EGG);
 			content.add(SOUL_SCORPION_SPAWN_EGG);
+			content.add(WITHER_FLEA_SPAWN_EGG);
 		});
 		Registry.register(Registries.ITEM, ThirstId.id("logger_item"),
 				new LoggerItem(new Item.Settings()
@@ -76,6 +81,5 @@ public class AncientThirst implements ModInitializer {
 		});
 		ModRegistries.init();
 		ModSounds.init();
-
 	}
 }

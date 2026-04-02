@@ -57,4 +57,5 @@ public class Utils {
         Path path = mob.getNavigation().findPathTo(target, 1);
         return path != null && (path.reachesTarget() || path.isFinished());
     }
+
 }
