@@ -1,5 +1,7 @@
 package com.thirst.entity;
 
+import com.thirst.ModEffects;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -36,9 +38,9 @@ public class SoulScorpion extends MeleeUnit {
             this.stingCooldown = 200;
             if (target.isAlive()) {
                 LivingEntity targetMob = (LivingEntity) target;
-                if (targetMob.getClass().isAssignableFrom(PassiveEntity.class))
-                    targetMob.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS,
-                            100, 2));
+                if (targetMob instanceof PassiveEntity)
+                    targetMob.addStatusEffect(new StatusEffectInstance(ModEffects.PARALYSIS,
+                            100, 1));
                 else
                     targetMob.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS,
                             100, 0));

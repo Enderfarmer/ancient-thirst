@@ -81,5 +81,6 @@ public class AncientThirst implements ModInitializer {
 		});
 		ModRegistries.init();
 		ModSounds.init();
+		ModEffects.init();
 	}
 }
