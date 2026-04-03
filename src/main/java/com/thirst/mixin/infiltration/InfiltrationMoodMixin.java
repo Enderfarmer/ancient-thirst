@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.thirst.AmbushConfig;
 import com.thirst.AncientThirst;
-import com.thirst.ModSounds;
+import com.thirst.common.ModSounds;
 import com.thirst.entity.Infectable;
 import com.thirst.entity.InfiltrationUnit;
 

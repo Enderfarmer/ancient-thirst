@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
-import com.thirst.ModBlockTags;
 import com.thirst.Utils;
+import com.thirst.common.ModBlockTags;
 import com.thirst.entity.GroundUnit;
 import com.thirst.systems.formation.FormationState;
 
@@ -21,7 +21,6 @@ public class WitherGroundGoal extends Goal {
     private boolean isFinished = false;
     // CRASH RISK: Ensure this is ONLY updated via the mob's data
     private BlockPos positionTarget = null;
-    private BlockPos lastWitheredBlockPos = null;
     private int cd = 0; // Cooldown to prevent spamming the same block if something goes wrong
 
     public WitherGroundGoal(GroundUnit mob, int maxCd) {
@@ -79,8 +78,6 @@ public class WitherGroundGoal extends Goal {
                     this.mob.setSiphoning(false);
                     this.mob.witherGround();
                     this.mob.clearPositionTarget();
-                    this.lastWitheredBlockPos = positionTarget;
-                    this.positionTarget = null;
                     this.timer = 0;
 
                     this.mob.getNavigation().stop();

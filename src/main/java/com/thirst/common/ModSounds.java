@@ -1,4 +1,6 @@
-package com.thirst;
+package com.thirst.common;
+
+import com.thirst.ThirstId;
 
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

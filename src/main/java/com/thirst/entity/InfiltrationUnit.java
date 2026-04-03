@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.thirst.AmbushConfig;
 import com.thirst.AncientThirst;
-import com.thirst.ModSounds;
+import com.thirst.common.ModSounds;
 import com.thirst.entity.goal.FormationGoal;
 import com.thirst.mixin.MobEntityAccessor;
 

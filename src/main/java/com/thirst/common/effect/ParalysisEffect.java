@@ -1,4 +1,4 @@
-package com.thirst.effect;
+package com.thirst.common.effect;
 
 import com.thirst.ThirstId;
 

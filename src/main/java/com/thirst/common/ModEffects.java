@@ -1,6 +1,7 @@
-package com.thirst;
+package com.thirst.common;
 
-import com.thirst.effect.ParalysisEffect;
+import com.thirst.ThirstId;
+import com.thirst.common.effect.ParalysisEffect;
 
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;

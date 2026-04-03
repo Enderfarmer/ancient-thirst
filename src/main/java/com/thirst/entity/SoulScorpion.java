@@ -1,6 +1,6 @@
 package com.thirst.entity;
 
-import com.thirst.ModEffects;
+import com.thirst.common.ModEffects;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

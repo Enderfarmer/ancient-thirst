@@ -3,7 +3,7 @@ package com.thirst.systems.mutations.types;
 import java.util.List;
 
 import com.mojang.serialization.MapCodec;
-import com.thirst.ModEntityTags;
+import com.thirst.common.ModEntityTags;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.EntityAttribute;

@@ -19,6 +19,8 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.thirst.common.ModEffects;
+import com.thirst.common.ModSounds;
 import com.thirst.entity.Hitbox;
 import com.thirst.entity.MinGroundUnitEntity;
 import com.thirst.entity.SoulScorpion;

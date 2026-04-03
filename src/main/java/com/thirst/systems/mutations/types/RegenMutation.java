@@ -3,8 +3,8 @@ package com.thirst.systems.mutations.types;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.thirst.ModEntityTags;
-import com.thirst.ModSounds;
+import com.thirst.common.ModEntityTags;
+import com.thirst.common.ModSounds;
 import com.thirst.entity.Unit;
 
 import net.minecraft.block.BlockState;
