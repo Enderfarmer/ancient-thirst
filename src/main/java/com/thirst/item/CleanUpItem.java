@@ -10,8 +10,8 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class NavStop extends Item {
-    public NavStop(Settings settings) {
+public class CleanUpItem extends Item {
+    public CleanUpItem(Settings settings) {
         super(settings);
     }
 

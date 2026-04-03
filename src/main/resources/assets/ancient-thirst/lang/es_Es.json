@@ -1,0 +1,10 @@
+{
+    "entity.ancient-thirst.min_ground_unit": "Unidad de tierra m\u00ednima",
+    "entity.ancient-thirst.wither_flea": "Marchitar la pulga",
+    "entity.ancient-thirst.soul_scorpion": "Alma Escorpi\u00f3n",
+    "item.ancient-thirst.cleanup": "Limpieza",
+    "item.ancient-thirst.create_formation": "Crear formaci\u00f3n",
+    "item.ancient-thirst.min_ground_unit_spawn_egg": "Huevo de Spawn de Unidad de tierra m\u00ednima",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Huevo de Spawn de Marchitar la pulga",
+    "item.ancient-thirst.soul_scorpion_spawn_egg": "Huevo de Spawn de Alma Escorpi\u00f3n"
+}

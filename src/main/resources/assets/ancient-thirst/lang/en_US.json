@@ -1,0 +1,10 @@
+{
+    "entity.ancient-thirst.min_ground_unit": "Min Ground Unit",
+    "entity.ancient-thirst.wither_flea": "Wither Flea",
+    "entity.ancient-thirst.soul_scorpion": "Soul Scorpion",
+    "item.ancient-thirst.cleanup": "Cleanup",
+    "item.ancient-thirst.create_formation": "Create Formation",
+    "item.ancient-thirst.min_ground_unit_spawn_egg": "Min Ground Unit Spawn Egg",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Wither Flea Spawn Egg",
+    "item.ancient-thirst.soul_scorpion_spawn_egg": "Soul Scorpion Spawn Egg"
+}

@@ -11,8 +11,8 @@ import net.minecraft.world.World;
 import com.thirst.Utils;
 import com.thirst.systems.formation.types.CircleFormation;
 
-public class LoggerItem extends Item {
-    public LoggerItem(Settings settings) {
+public class CreateFormationItem extends Item {
+    public CreateFormationItem(Settings settings) {
         super(settings);
     }
 

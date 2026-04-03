@@ -1,0 +1,10 @@
+{
+    "entity.ancient-thirst.min_ground_unit": "Unit\u00e0 di terra minima",
+    "entity.ancient-thirst.wither_flea": "Pulce appassita",
+    "entity.ancient-thirst.soul_scorpion": "Scorpione dell'anima",
+    "item.ancient-thirst.cleanup": "Ripulire",
+    "item.ancient-thirst.create_formation": "Crea formazione",
+    "item.ancient-thirst.min_ground_unit_spawn_egg": "Uovo di Spawn di Unit\u00e0 di terra minima",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Uovo di Spawn di Pulce appassita",
+    "item.ancient-thirst.soul_scorpion_spawn_egg": "Uovo di Spawn di Scorpione dell'anima"
+}

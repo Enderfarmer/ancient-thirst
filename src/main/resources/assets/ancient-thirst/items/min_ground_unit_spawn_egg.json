@@ -1,0 +1,6 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "ancient-thirst:item/min_ground_unit_spawn_egg"
+    }
+}

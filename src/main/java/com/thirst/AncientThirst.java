@@ -23,8 +23,8 @@ import com.thirst.entity.Hitbox;
 import com.thirst.entity.MinGroundUnitEntity;
 import com.thirst.entity.SoulScorpion;
 import com.thirst.entity.WitherFlea;
-import com.thirst.item.LoggerItem;
-import com.thirst.item.NavStop;
+import com.thirst.item.CreateFormationItem;
+import com.thirst.item.CleanUpItem;
 import com.thirst.systems.formation.FormationedAttackState;
 
 public class AncientThirst implements ModInitializer {
@@ -70,12 +70,12 @@ public class AncientThirst implements ModInitializer {
 			content.add(SOUL_SCORPION_SPAWN_EGG);
 			content.add(WITHER_FLEA_SPAWN_EGG);
 		});
-		Registry.register(Registries.ITEM, ThirstId.id("logger_item"),
-				new LoggerItem(new Item.Settings()
-						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "logger_item"))));
-		Registry.register(Registries.ITEM, ThirstId.id("nav_stop"),
-				new NavStop(new Item.Settings()
-						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "nav_stop"))));
+		Registry.register(Registries.ITEM, ThirstId.id("create_formation"),
+				new CreateFormationItem(new Item.Settings()
+						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "create_formation"))));
+		Registry.register(Registries.ITEM, ThirstId.id("cleanup"),
+				new CleanUpItem(new Item.Settings()
+						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "cleanup"))));
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			FormationedAttackState.getServerState(server).tick(server);
 		});

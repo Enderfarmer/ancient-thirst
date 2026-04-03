@@ -1,0 +1,10 @@
+{
+    "entity.ancient-thirst.min_ground_unit": "Unit\u00e9 au sol minimale",
+    "entity.ancient-thirst.wither_flea": "Puce fl\u00e9trie",
+    "entity.ancient-thirst.soul_scorpion": "\u00c2me Scorpion",
+    "item.ancient-thirst.cleanup": "Nettoyage",
+    "item.ancient-thirst.create_formation": "Cr\u00e9er une formation",
+    "item.ancient-thirst.min_ground_unit_spawn_egg": "Spawn d'\u0153uf de Unit\u00e9 au sol minimale",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Spawn d'\u0153uf de Puce fl\u00e9trie",
+    "item.ancient-thirst.soul_scorpion_spawn_egg": "Spawn d'\u0153uf de \u00c2me Scorpion"
+}

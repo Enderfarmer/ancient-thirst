@@ -1,0 +1,10 @@
+{
+    "entity.ancient-thirst.min_ground_unit": "Min. Bodeneinheit",
+    "entity.ancient-thirst.wither_flea": "Witherfloh",
+    "entity.ancient-thirst.soul_scorpion": "Seelenskorpion",
+    "item.ancient-thirst.cleanup": "Aufr\u00e4umen",
+    "item.ancient-thirst.create_formation": "Formation erstellen",
+    "item.ancient-thirst.min_ground_unit_spawn_egg": "Min. Bodeneinheit-Spawn-Ei",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Witherfloh-Spawn-Ei",
+    "item.ancient-thirst.soul_scorpion_spawn_egg": "Seelenskorpion-Spawn-Ei"
+}
