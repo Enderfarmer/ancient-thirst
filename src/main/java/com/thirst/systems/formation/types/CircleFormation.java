@@ -8,7 +8,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.thirst.Utils;
-import com.thirst.entity.UnitType;
+import com.thirst.common.entity.UnitType;
 import com.thirst.systems.formation.FormationState;
 import com.thirst.systems.formation.FormationedAttackState;
 

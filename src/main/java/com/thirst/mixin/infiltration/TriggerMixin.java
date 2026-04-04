@@ -7,9 +7,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.thirst.entity.Infectable;
-import com.thirst.entity.InfiltrationUnit;
-
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,6 +15,8 @@ import com.thirst.AmbushConfig;
 import com.thirst.AncientThirst;
 import com.thirst.FactoredDecision;
 import com.thirst.FactoredDecision.Factor;
+import com.thirst.common.entity.Infectable;
+import com.thirst.common.entity.InfiltrationUnit;
 
 @Mixin(PlayerEntity.class)
 public class TriggerMixin {

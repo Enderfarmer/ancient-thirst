@@ -20,13 +20,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.thirst.common.ModEffects;
+import com.thirst.common.ModItems;
 import com.thirst.common.ModSounds;
-import com.thirst.entity.Hitbox;
-import com.thirst.entity.MinGroundUnitEntity;
-import com.thirst.entity.SoulScorpion;
-import com.thirst.entity.WitherFlea;
-import com.thirst.item.CreateFormationItem;
-import com.thirst.item.CleanUpItem;
+import com.thirst.common.entity.Hitbox;
+import com.thirst.common.entity.MinGroundUnitEntity;
+import com.thirst.common.entity.SoulScorpion;
+import com.thirst.common.entity.WitherFlea;
+import com.thirst.common.item.CleanUpItem;
+import com.thirst.common.item.CreateFormationItem;
 import com.thirst.systems.formation.FormationedAttackState;
 
 public class AncientThirst implements ModInitializer {
@@ -72,12 +73,7 @@ public class AncientThirst implements ModInitializer {
 			content.add(SOUL_SCORPION_SPAWN_EGG);
 			content.add(WITHER_FLEA_SPAWN_EGG);
 		});
-		Registry.register(Registries.ITEM, ThirstId.id("create_formation"),
-				new CreateFormationItem(new Item.Settings()
-						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "create_formation"))));
-		Registry.register(Registries.ITEM, ThirstId.id("cleanup"),
-				new CleanUpItem(new Item.Settings()
-						.registryKey(ThirstId.registryKey(RegistryKeys.ITEM, "cleanup"))));
+		ModItems.init();
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			FormationedAttackState.getServerState(server).tick(server);
 		});

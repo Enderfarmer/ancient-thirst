@@ -1,4 +1,4 @@
-package com.thirst.entity.goal;
+package com.thirst.common.entity.goal;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.thirst.Utils;
 import com.thirst.common.ModBlockTags;
-import com.thirst.entity.GroundUnit;
+import com.thirst.common.entity.GroundUnit;
 import com.thirst.systems.formation.FormationState;
 
 import net.minecraft.block.Blocks;

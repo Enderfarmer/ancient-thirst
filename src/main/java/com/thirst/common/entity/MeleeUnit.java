@@ -1,4 +1,4 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AttackGoal;

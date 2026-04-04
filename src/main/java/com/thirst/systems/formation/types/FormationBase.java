@@ -8,9 +8,9 @@ import com.mojang.serialization.Codec;
 import com.thirst.AncientThirst;
 import com.thirst.ModRegistries;
 import com.thirst.ThirstId;
-import com.thirst.entity.MinGroundUnitEntity;
-import com.thirst.entity.Unit;
-import com.thirst.entity.UnitType;
+import com.thirst.common.entity.MinGroundUnitEntity;
+import com.thirst.common.entity.Unit;
+import com.thirst.common.entity.UnitType;
 import com.thirst.systems.formation.FormationState;
 import com.thirst.systems.formation.FormationedAttackState;
 

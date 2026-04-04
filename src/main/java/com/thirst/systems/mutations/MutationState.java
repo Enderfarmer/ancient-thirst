@@ -6,7 +6,7 @@ import java.util.Map;
 import com.mojang.serialization.Codec;
 import com.thirst.AncientThirst;
 import com.thirst.ModRegistries;
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 import com.thirst.systems.mutations.types.MutationBase;
 
 import net.minecraft.block.BlockState;

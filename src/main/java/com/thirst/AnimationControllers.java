@@ -2,7 +2,7 @@ package com.thirst;
 
 import java.util.function.Predicate;
 
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 
 import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;

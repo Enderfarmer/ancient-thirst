@@ -4,7 +4,7 @@ import java.io.ObjectInputFilter.Status;
 import java.util.List;
 
 import com.thirst.FactoredDecision.Factor;
-import com.thirst.entity.Infectable;
+import com.thirst.common.entity.Infectable;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;

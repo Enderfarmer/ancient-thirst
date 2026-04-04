@@ -1,9 +1,9 @@
-package com.thirst.entity.goal;
+package com.thirst.common.entity.goal;
 
 import java.util.EnumSet;
 import java.util.List;
 
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;

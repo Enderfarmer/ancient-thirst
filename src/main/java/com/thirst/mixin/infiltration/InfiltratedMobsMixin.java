@@ -10,8 +10,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.thirst.AmbushConfig;
 import com.thirst.AncientThirst;
-import com.thirst.entity.Infectable;
-import com.thirst.entity.InfiltrationUnit;
+import com.thirst.common.entity.Infectable;
+import com.thirst.common.entity.InfiltrationUnit;
 import com.thirst.mixin.MobEntityAccessor;
 
 import net.minecraft.entity.ai.goal.GoalSelector;

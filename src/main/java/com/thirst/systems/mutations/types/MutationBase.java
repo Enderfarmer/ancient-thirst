@@ -3,7 +3,7 @@ package com.thirst.systems.mutations.types;
 import com.mojang.serialization.Codec;
 import com.thirst.ModRegistries;
 import com.thirst.ThirstId;
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;

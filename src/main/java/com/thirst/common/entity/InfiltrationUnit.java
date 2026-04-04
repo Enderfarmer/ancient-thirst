@@ -1,11 +1,11 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 import java.util.List;
 
 import com.thirst.AmbushConfig;
 import com.thirst.AncientThirst;
 import com.thirst.common.ModSounds;
-import com.thirst.entity.goal.FormationGoal;
+import com.thirst.common.entity.goal.FormationGoal;
 import com.thirst.mixin.MobEntityAccessor;
 
 import net.minecraft.entity.Entity;

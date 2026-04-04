@@ -1,12 +1,12 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 import org.apache.commons.lang3.NotImplementedException;
 
 import com.thirst.AnimationControllers;
 import com.thirst.Utils;
-import com.thirst.entity.goal.FormationGoal;
-import com.thirst.entity.goal.SpreadOutGoal;
-import com.thirst.entity.goal.WitherGroundGoal;
+import com.thirst.common.entity.goal.FormationGoal;
+import com.thirst.common.entity.goal.SpreadOutGoal;
+import com.thirst.common.entity.goal.WitherGroundGoal;
 
 import java.util.List;
 import java.util.function.Predicate;

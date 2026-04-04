@@ -1,4 +1,4 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.jspecify.annotations.NonNull;

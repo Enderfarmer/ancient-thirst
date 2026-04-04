@@ -1,4 +1,4 @@
-package com.thirst.item;
+package com.thirst.common.item;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

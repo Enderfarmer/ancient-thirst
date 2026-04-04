@@ -5,7 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.thirst.common.ModEntityTags;
 import com.thirst.common.ModSounds;
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

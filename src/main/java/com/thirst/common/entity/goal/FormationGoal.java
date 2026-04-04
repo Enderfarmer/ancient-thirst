@@ -1,10 +1,10 @@
-package com.thirst.entity.goal;
+package com.thirst.common.entity.goal;
 
 import java.util.EnumSet;
 
 import com.thirst.AncientThirst;
-import com.thirst.entity.Unit;
-import com.thirst.entity.UnitType;
+import com.thirst.common.entity.Unit;
+import com.thirst.common.entity.UnitType;
 import com.thirst.systems.formation.FormationState;
 
 import net.minecraft.entity.ai.goal.Goal;

@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.thirst.entity.Infectable;
+import com.thirst.common.entity.Infectable;
 import com.thirst.mixin.MobEntityAccessor;
 
 import net.minecraft.entity.ai.goal.GoalSelector;

@@ -1,4 +1,4 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 public class Hitbox {
     public float width;

@@ -6,7 +6,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.thirst.AncientThirst;
-import com.thirst.entity.Unit;
+import com.thirst.common.entity.Unit;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;

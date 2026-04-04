@@ -1,4 +1,4 @@
-package com.thirst.entity;
+package com.thirst.common.entity;
 
 import com.thirst.mass.MassState;
 import com.thirst.systems.mutations.MutationState;
