@@ -32,48 +32,11 @@ import com.thirst.common.item.CreateFormationItem;
 import com.thirst.systems.formation.FormationedAttackState;
 
 public class AncientThirst implements ModInitializer {
-
-	public static <T extends PathAwareEntity> EntityType<T> registerEntityType(String name,
-			EntityType.EntityFactory<T> factory, Hitbox hitbox) {
-		Identifier id = ThirstId.id(name);
-		RegistryKey<EntityType<?>> key = ThirstId.registryKey(RegistryKeys.ENTITY_TYPE, name);
-		EntityType<T> entityType = EntityType.Builder.create(factory, SpawnGroup.CREATURE)
-				.dimensions(hitbox.width, hitbox.height) // The "Hitbox" size
-				.build(key);
-		return Registry.register(Registries.ENTITY_TYPE, id,
-				entityType);
-	}
-
-	public static SpawnEggItem registerSpawnEgg(EntityType<? extends PathAwareEntity> entityType, String name) {
-		RegistryKey<Item> registryKey = ThirstId.registryKey(RegistryKeys.ITEM, name + "_spawn_egg");
-		SpawnEggItem spawnEgg = new SpawnEggItem(new Item.Settings().spawnEgg(entityType).registryKey(registryKey));
-		return Registry.register(Registries.ITEM, registryKey, spawnEgg);
-	}
-
 	public static final String MOD_ID = "ancient-thirst";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static EntityType<MinGroundUnitEntity> MIN_GROUND_UNIT = registerEntityType("min_ground_unit",
-			MinGroundUnitEntity::new,
-			MinGroundUnitEntity.getHitboxDims());
-	public static EntityType<SoulScorpion> SOUL_SCORPION = registerEntityType("soul_scorpion", SoulScorpion::new,
-			SoulScorpion.getHitboxDims());
-	public static EntityType<WitherFlea> WITHER_FLEA = registerEntityType("wither_flea", WitherFlea::new,
-			WitherFlea.getHitboxDims());
-
 	@Override
 	public void onInitialize() {
-		SpawnEggItem MIN_GROUND_UNIT_SPAWN_EGG = registerSpawnEgg(MIN_GROUND_UNIT, "min_ground_unit");
-		SpawnEggItem SOUL_SCORPION_SPAWN_EGG = registerSpawnEgg(SOUL_SCORPION, "soul_scorpion");
-		SpawnEggItem WITHER_FLEA_SPAWN_EGG = registerSpawnEgg(WITHER_FLEA, "wither_flea");
-		FabricDefaultAttributeRegistry.register(MIN_GROUND_UNIT, MinGroundUnitEntity.createAttributes());
-		FabricDefaultAttributeRegistry.register(SOUL_SCORPION, SoulScorpion.createAttributes());
-		FabricDefaultAttributeRegistry.register(WITHER_FLEA, WitherFlea.createAttributes());
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
-			content.add(MIN_GROUND_UNIT_SPAWN_EGG);
-			content.add(SOUL_SCORPION_SPAWN_EGG);
-			content.add(WITHER_FLEA_SPAWN_EGG);
-		});
 		ModItems.init();
 		ModEntities.init();
 		ServerTickEvents.END_SERVER_TICK.register(server -> {

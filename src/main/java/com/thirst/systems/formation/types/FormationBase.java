@@ -8,6 +8,7 @@ import com.mojang.serialization.Codec;
 import com.thirst.AncientThirst;
 import com.thirst.ModRegistries;
 import com.thirst.ThirstId;
+import com.thirst.common.ModEntities;
 import com.thirst.common.entity.MinGroundUnitEntity;
 import com.thirst.common.entity.Unit;
 import com.thirst.common.entity.UnitType;
@@ -144,7 +145,7 @@ public abstract class FormationBase {
             double spawnX = target.getX() + offsetX;
             double spawnZ = target.getZ() + offsetZ;
             double spawnY = world.getTopY(Heightmap.Type.MOTION_BLOCKING, (int) spawnX, (int) spawnZ);
-            MinGroundUnitEntity unit = AncientThirst.MIN_GROUND_UNIT.create(world, null,
+            MinGroundUnitEntity unit = ModEntities.MIN_GROUND_UNIT.create(world, null,
                     BlockPos.ofFloored(spawnX, spawnY, spawnZ), SpawnReason.TRIGGERED, false, false);
             unit.refreshPositionAndAngles(spawnX, spawnY, spawnZ, world.random.nextFloat() * 360F, 0);
 

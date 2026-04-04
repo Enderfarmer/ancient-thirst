@@ -1,5 +1,7 @@
 package com.thirst;
 
+import com.thirst.common.ModEntities;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.render.entity.EntityRendererFactories;
 import net.minecraft.entity.EntityType;
@@ -13,8 +15,8 @@ public class AncientThirstClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		registerRenderer(AncientThirst.MIN_GROUND_UNIT);
-		registerRenderer(AncientThirst.SOUL_SCORPION);
-		registerRenderer(AncientThirst.WITHER_FLEA);
+		registerRenderer(ModEntities.MIN_GROUND_UNIT);
+		registerRenderer(ModEntities.SOUL_SCORPION);
+		registerRenderer(ModEntities.WITHER_FLEA);
 	}
 }

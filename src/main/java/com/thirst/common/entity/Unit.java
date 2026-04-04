@@ -5,6 +5,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import com.thirst.AncientThirst;
+import com.thirst.common.ModEntities;
 import com.thirst.mass.MassState;
 import com.thirst.systems.formation.FormationState;
 import com.thirst.systems.formation.types.FormationBase;
@@ -87,7 +88,7 @@ public class Unit extends PathAwareEntity implements GeoEntity {
         MassState.getServerState(world.getServer()).onKill(other);
         MutationState.getServerState(world.getServer()).onKill(other.getType());
         // if (this.isInFormation) {
-        world.spawnEntity(AncientThirst.SOUL_SCORPION.create(world, null, other.getBlockPos().add(0, -1, 0),
+        world.spawnEntity(ModEntities.SOUL_SCORPION.create(world, null, other.getBlockPos().add(0, -1, 0),
                 SpawnReason.CONVERSION, true, false));
         other.discard();
         return false;
