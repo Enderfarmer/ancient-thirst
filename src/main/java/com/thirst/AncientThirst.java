@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.thirst.common.ModEffects;
+import com.thirst.common.ModEntities;
 import com.thirst.common.ModItems;
 import com.thirst.common.ModSounds;
 import com.thirst.common.entity.Hitbox;
@@ -74,6 +75,7 @@ public class AncientThirst implements ModInitializer {
 			content.add(WITHER_FLEA_SPAWN_EGG);
 		});
 		ModItems.init();
+		ModEntities.init();
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			FormationedAttackState.getServerState(server).tick(server);
 		});
