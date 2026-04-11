@@ -1,5 +1,7 @@
 package com.thirst.common.entity;
 
+import java.util.List;
+
 import org.apache.commons.lang3.NotImplementedException;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
@@ -7,6 +9,7 @@ import org.jspecify.annotations.Nullable;
 import com.thirst.AncientThirst;
 import com.thirst.common.ModEntities;
 import com.thirst.mass.MassState;
+import com.thirst.systems.documentation.gathering.Events;
 import com.thirst.systems.formation.FormationState;
 import com.thirst.systems.formation.types.FormationBase;
 import com.thirst.systems.mutations.MutationState;
@@ -16,9 +19,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -37,6 +42,7 @@ public class Unit extends PathAwareEntity implements GeoEntity {
     public FormationState formationState;
     public boolean inPosition;
     public FormationBase formation;
+    float lastDamage = 0;
 
     public UnitType getUnitType() {
         return null;
@@ -103,6 +109,7 @@ public class Unit extends PathAwareEntity implements GeoEntity {
 
             return;
         }
+        this.lastDamage = amount;
         super.applyDamage(world, source, amount);
     }
 
@@ -123,5 +130,14 @@ public class Unit extends PathAwareEntity implements GeoEntity {
             return;
         }
         super.onDamaged(damageSource);
+    }
+
+    @Override
+    public void onDeath(DamageSource damageSource) {
+        if (damageSource.getAttacker() != null) {
+            AncientThirst.LOGGER.info("Last damage taken: " + lastDamage);
+            Events.onDeath(this, damageSource, lastDamage);
+        }
+        super.onDeath(damageSource);
     }
 }
