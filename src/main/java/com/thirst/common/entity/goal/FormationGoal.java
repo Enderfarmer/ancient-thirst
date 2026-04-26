@@ -43,7 +43,7 @@ public class FormationGoal extends Goal {
     @Override
     public boolean shouldContinue() {
         // Continue until they are within the "comfortable" zone
-        double stopDistance = (this.mob.formationState == FormationState.BUILDING) ? 1.5 : 6.0;
+        double stopDistance = (this.mob.formationState == FormationState.BUILDING) ? 1. : 6.0;
         return canStart() && this.mob.getBlockPos().getSquaredDistance(this.mob.getFormationSlot()) > stopDistance;
     }
 

@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 
 import com.thirst.Utils;
 import com.thirst.systems.formation.types.CircleFormation;
+import com.thirst.systems.formation.types.FiveFormation;
 
 public class CreateFormationItem extends Item {
     public CreateFormationItem(Settings settings) {
@@ -21,7 +22,7 @@ public class CreateFormationItem extends Item {
         if (!world.isClient()) {
             Utils.log("LoggerItem: Using logger item", user);
             HitResult hit = user.raycast(100.0D, 0.0F, false);
-            CircleFormation.startAttack(world.getServer(), BlockPos.ofFloored(hit.getPos()));
+            FiveFormation.startAttack(world.getServer(), BlockPos.ofFloored(hit.getPos()));
             return ActionResult.SUCCESS;
         }
         ;

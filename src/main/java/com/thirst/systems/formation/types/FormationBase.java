@@ -10,6 +10,7 @@ import com.thirst.ModRegistries;
 import com.thirst.ThirstId;
 import com.thirst.common.ModEntities;
 import com.thirst.common.entity.MinGroundUnitEntity;
+import com.thirst.common.entity.SoulScorpion;
 import com.thirst.common.entity.Unit;
 import com.thirst.common.entity.UnitType;
 import com.thirst.systems.formation.FormationState;
@@ -77,7 +78,8 @@ public abstract class FormationBase {
 
     public abstract String getType();
 
-    protected abstract Vec3d calculateSlot(Entity leader, int indexInGroup, int groupUnitCount, UnitType type);
+    protected abstract Vec3d calculateSlot(Entity leader, int indexInGroup, int groupUnitCount, UnitType type,
+            UUID memberId);
 
     protected abstract void electNewLeader(MinecraftServer server);
 
@@ -134,7 +136,9 @@ public abstract class FormationBase {
         this.initialized = initialized;
     }
 
-    // Update logic
+    public void acceptMember(Unit memberToBe) {
+        this.members.add(memberToBe.getUuid());
+    }
 
     protected void spawnInitialMembers(ServerWorld world, BlockPos target, int count) {
         for (int i = 0; i < count; i++) {
@@ -148,11 +152,25 @@ public abstract class FormationBase {
             MinGroundUnitEntity unit = ModEntities.MIN_GROUND_UNIT.create(world, null,
                     BlockPos.ofFloored(spawnX, spawnY, spawnZ), SpawnReason.TRIGGERED, false, false);
             unit.refreshPositionAndAngles(spawnX, spawnY, spawnZ, world.random.nextFloat() * 360F, 0);
-
-            this.members.add(unit.getUuid());
-
+            acceptMember(unit);
             world.spawnEntity(unit);
+        }
+    }
 
+    protected void spawnInitialMembers(ServerWorld world, BlockPos target, int count, boolean melee) {
+        for (int i = 0; i < count; i++) {
+
+            double offsetX = (world.random.nextDouble() - 0.5) * 4.0;
+            double offsetZ = (world.random.nextDouble() - 0.5) * 4.0;
+
+            double spawnX = target.getX() + offsetX;
+            double spawnZ = target.getZ() + offsetZ;
+            double spawnY = world.getTopY(Heightmap.Type.MOTION_BLOCKING, (int) spawnX, (int) spawnZ);
+            SoulScorpion unit = ModEntities.SOUL_SCORPION.create(world, null,
+                    BlockPos.ofFloored(spawnX, spawnY, spawnZ), SpawnReason.TRIGGERED, false, false);
+            unit.refreshPositionAndAngles(spawnX, spawnY, spawnZ, world.random.nextFloat() * 360F, 0);
+            acceptMember(unit);
+            world.spawnEntity(unit);
         }
     }
 
@@ -223,11 +241,13 @@ public abstract class FormationBase {
             Entity member = world.getEntity(members.get(i));
             if (member instanceof Unit unit) {
                 unit.formation = this;
-                Vec3d slotPos = calculateSlot(leader, getIdInGroup(unit), getCountByType(unit.getUnitType()),
-                        unit.getUnitType());
-                unit.setFormationSlot(BlockPos.ofFloored(slotPos)); // The "Control Chip" instruction
-                unit.formationState = state;
-                unit.isInFormation = true;
+                if (!unit.inPosition) {
+                    Vec3d slotPos = calculateSlot(leader, getIdInGroup(unit), getCountByType(unit.getUnitType()),
+                            unit.getUnitType(), member.getUuid());
+                    unit.setFormationSlot(BlockPos.ofFloored(slotPos)); // The "Control Chip" instruction
+                    unit.formationState = state;
+                    unit.isInFormation = true;
+                }
                 if (this.state == FormationState.BUILDING)
                     checkInPosition(unit);
             } else {

@@ -1,5 +1,7 @@
 package com.thirst.common.entity;
 
+import com.thirst.common.entity.goal.FormationGoal;
+
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
@@ -28,9 +30,10 @@ public class MeleeUnit extends Unit {
 
     public void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(1, new AttackGoal(this));
-        this.goalSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.goalSelector.add(3, new ActiveTargetGoal<>(this, AnimalEntity.class, true));
-        this.goalSelector.add(4, new WanderAroundFarGoal(this, 1.0));
+        this.goalSelector.add(1, new FormationGoal(this));
+        this.goalSelector.add(2, new AttackGoal(this));
+        this.goalSelector.add(3, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.add(4, new ActiveTargetGoal<>(this, AnimalEntity.class, true));
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0));
     }
 }

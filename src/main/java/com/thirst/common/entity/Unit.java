@@ -7,6 +7,7 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 import com.thirst.AncientThirst;
+import com.thirst.Utils;
 import com.thirst.common.ModEntities;
 import com.thirst.mass.MassState;
 import com.thirst.systems.documentation.gathering.Events;
@@ -22,11 +23,14 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -50,6 +54,13 @@ public class Unit extends PathAwareEntity implements GeoEntity {
 
     public @NonNull AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.cache;
+    }
+
+    @Override
+    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+        Utils.log("My formation slot: " + (this.formationSlot != null ? this.formationSlot : "I dont't have one :("),
+                player);
+        return super.interactMob(player, hand);
     }
 
     public boolean setFormationSlot(BlockPos slot) {

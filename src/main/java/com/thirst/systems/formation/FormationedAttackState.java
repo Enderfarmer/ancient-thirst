@@ -14,6 +14,11 @@ public class FormationedAttackState extends PersistentState {
 
     public Map<String, FormationBase> activeAttacks = new HashMap<>();
 
+    public void addFormation(FormationBase formation) {
+        this.activeAttacks.put(formation.uuid.toString(), formation);
+        this.markDirty();
+    }
+
     public static final Codec<FormationedAttackState> STATE_CODEC = Codec.unboundedMap(
             Codec.STRING,
             FormationBase.DISPATCH_CODEC).xmap(

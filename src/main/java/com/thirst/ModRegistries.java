@@ -2,6 +2,7 @@ package com.thirst;
 
 import com.thirst.systems.formation.FormationType;
 import com.thirst.systems.formation.types.CircleFormation;
+import com.thirst.systems.formation.types.FiveFormation;
 import com.thirst.systems.mutations.MutationType;
 import com.thirst.systems.mutations.types.RegenMutation;
 import com.thirst.systems.mutations.types.ShellMutation;
@@ -25,6 +26,8 @@ public class ModRegistries {
         public static void init() {
                 Registry.register(FORMATION_REGISTRY, ThirstId.id("circle"),
                                 new FormationType<>(CircleFormation.CODEC));
+                Registry.register(FORMATION_REGISTRY, ThirstId.id("five"),
+                                new FormationType<>(FiveFormation.CODEC));
                 Registry.register(UPGRADE_REGISTRY, ThirstId.id("strength"),
                                 new MutationType<>(StrengthMutation.CODEC, () -> new StrengthMutation(0)));
                 Registry.register(UPGRADE_REGISTRY, ThirstId.id("speed"),

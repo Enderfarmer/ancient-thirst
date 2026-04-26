@@ -47,13 +47,12 @@ public class CircleFormation extends FormationBase {
         CircleFormation formation = new CircleFormation(targetLocation, null, null, false);
         UUID uuid = UUID.randomUUID();
         formation.uuid = uuid;
-        state.activeAttacks.put(uuid.toString(), formation);
-        state.markDirty();
+        state.addFormation(formation);
         Utils.log("Created a formation targeting " + targetLocation, server.getOverworld().getPlayers().get(0));
     }
 
     @Override
-    protected Vec3d calculateSlot(Entity leader, int indexInGroup, int groupUnitCount, UnitType type) {
+    protected Vec3d calculateSlot(Entity leader, int indexInGroup, int groupUnitCount, UnitType type, UUID memberId) {
         Vec3d rawPos = getCirclePosition(indexInGroup, groupUnitCount);
         Vec3d realPosWithoutY = new Vec3d(rawPos.x, 0, rawPos.z);
         Function<Integer, Vec3d> genPos = translateToRealPosWithConstantPosAndWorld(realPosWithoutY,
