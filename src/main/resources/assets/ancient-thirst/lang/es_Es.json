@@ -4,6 +4,12 @@
     "entity.ancient-thirst.soul_scorpion": "Alma Escorpi\u00f3n",
     "item.ancient-thirst.cleanup": "Limpieza",
     "item.ancient-thirst.create_formation": "Crear formaci\u00f3n",
+    "effect.ancient-thirst.paralysis": "Par\u00e1lisis",
+    "block.ancient-thirst.corrupted_soil": "Suelo corrupto",
+    "block.ancient-thirst.living_soulwood": "Madera del alma viva",
+    "block.ancient-thirst.soulwood": "Madera del alma",
+    "block.ancient-thirst.soulwood_planks": "Tablones de madera de alma",
+    "tag.item.ancient-thirst.soulwood_logs": "Troncos de madera del alma",
     "item.ancient-thirst.min_ground_unit_spawn_egg": "Huevo de Spawn de Unidad de tierra m\u00ednima",
     "item.ancient-thirst.wither_flea_spawn_egg": "Huevo de Spawn de Marchitar la pulga",
     "item.ancient-thirst.soul_scorpion_spawn_egg": "Huevo de Spawn de Alma Escorpi\u00f3n"

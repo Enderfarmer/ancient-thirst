@@ -4,6 +4,9 @@ import com.thirst.ThirstId;
 import com.thirst.common.item.CleanUpItem;
 import com.thirst.common.item.CreateFormationItem;
 
+import net.fabricmc.fabric.mixin.itemgroup.CreativeModeTabAccessor;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
@@ -15,6 +18,11 @@ public class ModItems {
     private static Item register(String name, ItemConvertible item) {
         return Registry.register(Registries.ITEM, ThirstId.id(name),
                 item.asItem());
+    }
+
+    public static void registerBlockItem(String name, Block block) {
+        Registry.register(Registries.ITEM, ThirstId.id(name),
+                new BlockItem(block, new Item.Settings().registryKey(ThirstId.registryKey(RegistryKeys.ITEM, name))));
     }
 
     public static final Item CREATE_FORMATION_ITEM = register("create_formation", new CreateFormationItem(

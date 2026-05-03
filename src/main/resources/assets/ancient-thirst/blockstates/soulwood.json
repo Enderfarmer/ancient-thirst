@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "axis=y": { "model": "ancient-thirst:block/soulwood" },
+        "axis=z": { "model": "ancient-thirst:block/soulwood", "x": 90 },
+        "axis=x": {
+            "model": "ancient-thirst:block/soulwood",
+            "x": 90,
+            "y": 90
+        }
+    }
+}

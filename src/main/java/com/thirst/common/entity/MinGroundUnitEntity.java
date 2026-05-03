@@ -1,5 +1,6 @@
 package com.thirst.common.entity;
 
+import com.thirst.common.ModBlocks;
 import com.thirst.mass.MassState;
 import com.thirst.systems.mutations.MutationState;
 
@@ -25,22 +26,6 @@ public class MinGroundUnitEntity extends GroundUnit {
                 .add(EntityAttributes.MAX_HEALTH, 6.0)
                 .add(EntityAttributes.MOVEMENT_SPEED, 0.2);
     };
-
-    @Override
-    public void witherGround() {
-        BlockPos positionTarget = this.getPositionTarget();
-        MassState.getServerState(this.getEntityWorld().getServer())
-                .onInfectBlock(this.getEntityWorld().getBlockState(positionTarget));
-        MutationState.getServerState(this.getEntityWorld().getServer())
-                .onBlockInfect(this.getEntityWorld().getBlockState(positionTarget));
-
-        getEntityWorld().setBlockState(positionTarget,
-                Blocks.SOUL_SOIL.getDefaultState());
-        getEntityWorld().playSound(null, positionTarget,
-                SoundEvents.BLOCK_CHERRY_SAPLING_BREAK,
-                SoundCategory.BLOCKS, 1.0f, 0.5f);
-
-    }
 
     public static Hitbox getHitboxDims() {
         return new Hitbox(0.75f, 0.5f);

@@ -14,7 +14,8 @@
     "environment": "*",
     "entrypoints": {
         "main": ["com.thirst.AncientThirst"],
-        "client": ["com.thirst.AncientThirstClient"]
+        "client": ["com.thirst.AncientThirstClient"],
+        "fabric-datagen": ["com.thirst.common.datagen.ModDataGenerator"]
     },
     "mixins": [
         "ancient-thirst.mixins.json",

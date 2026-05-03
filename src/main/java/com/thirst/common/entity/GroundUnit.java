@@ -4,9 +4,12 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import com.thirst.AnimationControllers;
 import com.thirst.Utils;
+import com.thirst.common.ModBlocks;
 import com.thirst.common.entity.goal.FormationGoal;
 import com.thirst.common.entity.goal.SpreadOutGoal;
 import com.thirst.common.entity.goal.WitherGroundGoal;
+import com.thirst.mass.MassState;
+import com.thirst.systems.mutations.MutationState;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -20,6 +23,8 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -44,7 +49,11 @@ public abstract class GroundUnit extends Unit {
     };
 
     public void witherGround() {
-        throw new NotImplementedException("U have to define da withering behavior in ur child class!");
+        BlockPos positionTarget = this.getPositionTarget();
+        Utils.witherBlock(positionTarget, getEntityWorld());
+        getEntityWorld().playSound(null, positionTarget,
+                SoundEvents.BLOCK_CHERRY_SAPLING_BREAK,
+                SoundCategory.BLOCKS, 1.0f, 0.5f);
     }
 
     @Override
@@ -55,17 +64,6 @@ public abstract class GroundUnit extends Unit {
                 return isSiphoning();
             }
         }));
-    }
-
-    @Override
-    public ActionResult interactMob(PlayerEntity player, net.minecraft.util.Hand hand) {
-        // For testing: Right-click to trigger the siphoning animation
-        if (!this.getEntityWorld().isClient() && hand == net.minecraft.util.Hand.MAIN_HAND) {
-            List<String> logList = List.of("My pos: " + this.getBlockPos(),
-                    "My nav target: " + this.getNavigation().getTargetPos());
-            Utils.logAList(logList, player);
-        }
-        return ActionResult.SUCCESS;
     }
 
     protected void initGoals() {

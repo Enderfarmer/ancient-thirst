@@ -4,6 +4,12 @@
     "entity.ancient-thirst.soul_scorpion": "Soul Scorpion",
     "item.ancient-thirst.cleanup": "Cleanup",
     "item.ancient-thirst.create_formation": "Create Formation",
+    "effect.ancient-thirst.paralysis": "Paralysis",
+    "block.ancient-thirst.corrupted_soil": "Corrupted Soil",
+    "block.ancient-thirst.living_soulwood": "Living Soulwood",
+    "block.ancient-thirst.soulwood": "Soulwood",
+    "block.ancient-thirst.soulwood_planks": "Soulwood Planks",
+    "tag.item.ancient-thirst.soulwood_logs": "Soulwood Logs",
     "item.ancient-thirst.min_ground_unit_spawn_egg": "Min Ground Unit Spawn Egg",
     "item.ancient-thirst.wither_flea_spawn_egg": "Wither Flea Spawn Egg",
     "item.ancient-thirst.soul_scorpion_spawn_egg": "Soul Scorpion Spawn Egg"

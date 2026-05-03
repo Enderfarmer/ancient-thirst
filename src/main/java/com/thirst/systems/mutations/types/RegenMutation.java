@@ -3,6 +3,7 @@ package com.thirst.systems.mutations.types;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.thirst.Utils;
 import com.thirst.common.ModEntityTags;
 import com.thirst.common.ModSounds;
 import com.thirst.common.entity.Unit;
@@ -58,9 +59,8 @@ public class RegenMutation extends MutationBase {
             boolean shouldHeal = false;
             BlockPos catalystPos = mob.getBlockPos();
             for (BlockPos pos : BlockPos.iterateOutwards(mob.getBlockPos(), 2, 2, 2)) {
-                if (mob.getEntityWorld().getBlockState(pos).isOf(Blocks.SOUL_SOIL)) {
+                if (Utils.isWithered(pos, mob.getEntityWorld())) {
                     shouldHeal = true;
-
                     catalystPos = pos;
                     break;
                 }

@@ -1,10 +1,16 @@
 {
     "entity.ancient-thirst.min_ground_unit": "Min. Bodeneinheit",
-    "entity.ancient-thirst.wither_flea": "Witherfloh",
+    "entity.ancient-thirst.wither_flea": "Widerristfloh",
     "entity.ancient-thirst.soul_scorpion": "Seelenskorpion",
     "item.ancient-thirst.cleanup": "Aufr\u00e4umen",
     "item.ancient-thirst.create_formation": "Formation erstellen",
+    "effect.ancient-thirst.paralysis": "L\u00e4hmung",
+    "block.ancient-thirst.corrupted_soil": "Verdorbener Boden",
+    "block.ancient-thirst.living_soulwood": "Lebendiges Seelenholz",
+    "block.ancient-thirst.soulwood": "Seelenholz",
+    "block.ancient-thirst.soulwood_planks": "Seelenholzbretter",
+    "tag.item.ancient-thirst.soulwood_logs": "Seelenhölzer",
     "item.ancient-thirst.min_ground_unit_spawn_egg": "Min. Bodeneinheit-Spawn-Ei",
-    "item.ancient-thirst.wither_flea_spawn_egg": "Witherfloh-Spawn-Ei",
+    "item.ancient-thirst.wither_flea_spawn_egg": "Widerristfloh-Spawn-Ei",
     "item.ancient-thirst.soul_scorpion_spawn_egg": "Seelenskorpion-Spawn-Ei"
 }

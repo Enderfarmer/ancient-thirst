@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "ancient-thirst:soulwood_log",
+        "ancient-thirst:living_soulwood",
+        "ancient-thirst:stripped_soulwood_log"
+    ]
+}

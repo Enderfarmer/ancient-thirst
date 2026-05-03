@@ -43,3 +43,7 @@ replay_*.log
 
 lang_keys/
 langGen.py
+
+# generated resources
+
+src/main/generated/

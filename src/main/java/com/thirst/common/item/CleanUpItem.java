@@ -1,5 +1,7 @@
 package com.thirst.common.item;
 
+import com.thirst.Utils;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,9 +28,7 @@ public class CleanUpItem extends Item {
 
             // Iterates through every block in the 3D box
             for (BlockPos pos : BlockPos.iterate(start, end)) {
-                BlockState currentState = world.getBlockState(pos);
-
-                if (currentState.isOf(Blocks.SOUL_SOIL)) {
+                if (Utils.isWithered(pos, world)) {
                     world.setBlockState(pos, Blocks.GRASS_BLOCK.getDefaultState(), 3);
                 }
             }

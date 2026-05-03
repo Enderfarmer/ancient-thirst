@@ -13,5 +13,6 @@ public class ModBlockTags {
 
     public static final TagKey<Block> WITHERABLE = create("witherable");
     public static final TagKey<Block> DEPTH_BOOST = create("depth_upgrade");
+    public static final TagKey<Block> WITHERED = create("withered");
 
 }

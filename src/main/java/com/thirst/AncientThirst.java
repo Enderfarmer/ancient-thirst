@@ -19,8 +19,10 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.thirst.common.ModBlocks;
 import com.thirst.common.ModEffects;
 import com.thirst.common.ModEntities;
+import com.thirst.common.ModItemGroups;
 import com.thirst.common.ModItems;
 import com.thirst.common.ModSounds;
 import com.thirst.common.entity.Hitbox;
@@ -37,7 +39,9 @@ public class AncientThirst implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModItemGroups.init();
 		ModItems.init();
+		ModBlocks.init();
 		ModEntities.init();
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			FormationedAttackState.getServerState(server).tick(server);
@@ -45,5 +49,17 @@ public class AncientThirst implements ModInitializer {
 		ModRegistries.init();
 		ModSounds.init();
 		ModEffects.init();
+		ItemGroupEvents.modifyEntriesEvent(ModItemGroups.THIRST_GROUP).register(content -> {
+			content.add(ModItems.CREATE_FORMATION_ITEM);
+			content.add(ModItems.CLEAN_UP_ITEM);
+			content.add(ModBlocks.CORRUPTED_SOIL.asItem());
+			content.add(ModBlocks.SOULWOOD_LOG.asItem());
+			content.add(ModBlocks.LIVING_SOULWOOD.asItem());
+			content.add(ModBlocks.SOULWOOD_PLANKS.asItem());
+			content.add(ModBlocks.STRIPPED_SOULWOOD_LOG.asItem());
+			content.add(ModBlocks.SOULWOOD.asItem());
+			content.add(ModBlocks.STRIPPED_SOULWOOD.asItem());
+			// Add more items here as you create them
+		});
 	}
 }

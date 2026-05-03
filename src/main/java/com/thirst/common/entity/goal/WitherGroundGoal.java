@@ -85,7 +85,7 @@ public class WitherGroundGoal extends Goal {
                 }
             } else {
                 // WE ARE NOT THERE YET - KEEP WALKING!
-                if (this.mob.getEntityWorld().getBlockState(this.positionTarget).isOf(Blocks.SOUL_SOIL)) {
+                if (Utils.isWithered(this.mob.getPositionTarget(), this.mob.getEntityWorld())) {
                     this.isFinished = true;
                 }
                 ;
