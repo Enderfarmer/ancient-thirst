@@ -1,4 +1,9 @@
 {
     "replace": false,
-    "values": ["ancient-thirst:corrupted_soil"]
+    "values": [
+        "ancient-thirst:corrupted_soil",
+        "#ancient-thirst:soulwood_logs",
+        "ancient-thirst:soulwood_planks",
+        "ancient-thirst:bonestem"
+    ]
 }

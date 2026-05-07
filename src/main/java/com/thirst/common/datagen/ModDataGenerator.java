@@ -20,5 +20,6 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 
         // 2. This must also be here for your custom tag to exist
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModBlockTagProvider::new);
     }
 }

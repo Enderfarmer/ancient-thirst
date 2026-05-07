@@ -59,6 +59,7 @@ public class AncientThirst implements ModInitializer {
 			content.add(ModBlocks.STRIPPED_SOULWOOD_LOG.asItem());
 			content.add(ModBlocks.SOULWOOD.asItem());
 			content.add(ModBlocks.STRIPPED_SOULWOOD.asItem());
+			content.add(ModBlocks.BONESTEM.asItem());
 			// Add more items here as you create them
 		});
 	}
